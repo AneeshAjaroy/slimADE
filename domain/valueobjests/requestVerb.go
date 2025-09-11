@@ -6,7 +6,7 @@ type ReqVerb struct {
 	value string
 }
 
-var allowedValues = map[string]bool{
+var allowedVerbs = map[string]bool{
 	"POST":    true,
 	"GET":     true,
 	"PATCH":   true,
@@ -19,7 +19,7 @@ var allowedValues = map[string]bool{
 }
 
 func NewReqVerb(v string) (*ReqVerb, error) {
-	if allowedValues[v] {
+	if allowedVerbs[v] {
 		return &ReqVerb{value: v}, nil
 	}
 	return nil, errors.New("not valid verb")
