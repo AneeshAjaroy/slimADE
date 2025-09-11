@@ -1,0 +1,39 @@
+:root {
+    --
+}
+
+#project-page {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1/4fr 1/3fr 1/3fr;
+    height: 100vh;
+}
+
+#search-page {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 1 / 3 / 2;
+    background-color: pink;
+}
+
+#request-page {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 2 / 2 / 4;
+    padding: 0.5rem;
+
+}
+
+#request-page * {
+    margin: 0.1rem;
+    padding: 0.1rem;
+
+}
+
+#response-page {
+    display: flex;
+    flex-direction: column;
+    grid-area: 2 / 2 / 3 / 4;
+    background-color: yellow;
+
+}
