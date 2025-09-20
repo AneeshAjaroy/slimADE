@@ -1,22 +1,25 @@
-:root {
-    --
+
+body * {
+    border: thin solid black;
+    margin: 0.1rem;
 }
 
-#project-page {
+
+.project-page {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1/4fr 1/3fr 1/3fr;
     height: 100vh;
 }
 
-#search-page {
+.search-page {
     display: flex;
     flex-direction: column;
     grid-area: 1 / 1 / 3 / 2;
     background-color: pink;
 }
 
-#request-page {
+.request-page {
     display: flex;
     flex-direction: column;
     grid-area: 1 / 2 / 2 / 4;
@@ -24,13 +27,33 @@
 
 }
 
-#request-page * {
-    margin: 0.1rem;
-    padding: 0.1rem;
+.request-page * {
+    margin: 0.5rem;
+    padding: 0.5rem;
 
 }
 
-#response-page {
+.request-page button {
+    background-color: white;
+    font-size: 1rem;
+
+}
+
+button:hover{
+    outline: thick double purple;
+}
+
+button:focus {
+    outline: thick double green;
+}
+
+textarea{
+    resize: none;
+    overflow: scroll;
+}
+
+
+.response-page {
     display: flex;
     flex-direction: column;
     grid-area: 2 / 2 / 3 / 4;
