@@ -1,6 +1,18 @@
 
 const textArea = document.getElementById("area-helper")
 
+const selectArea = document.getElementById("select-helper")
+
+
+function UpdateColor() {
+    const color = selectArea.options[selectArea.selectedIndex].style.color;
+    console.log("hi",color)
+    selectArea.style.backgroundColor = color;
+}
+
+UpdateColor()
+
+selectArea.addEventListener("change",UpdateColor)
 
 textArea.addEventListener("keydown",function(e) {
 
@@ -8,6 +20,12 @@ textArea.addEventListener("keydown",function(e) {
         "{":"}",
         "[":"]",
         '"':'"'
+    }
+
+    const pairsCom = {
+        "{":"{}",
+        "[":"[]",
+        '"':'""'
     }
 
     const revPairs = {
@@ -47,7 +65,7 @@ textArea.addEventListener("keydown",function(e) {
     if (e.key === "Backspace") {
         beforeKey = beforeText.at(-1)
         afterKey = afterText[0]
-        if (pairs[beforeKey] === beforeKey + afterKey) {
+        if (pairsCom[beforeKey] === beforeKey + afterKey) {
             e.preventDefault()
             offsetLen = -1
             beforeText = beforeText.slice(0,-1)
