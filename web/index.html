@@ -21,8 +21,9 @@
 
         <!--Request Area-->
         <div id="request-area">
+
              <!--URL BAR-->
-            <div class="input-group">
+            <div class="url-bar">
                 <select name="method">
                     <option  selected value="POST">POST</option>
                     <option  value="GET">GET</option>
@@ -40,6 +41,15 @@
                 <button>
                     SUBMIT
                 </button>
+            </div>
+
+            <!--Request Params-->
+            <div class="request-params">
+                <button onclick="active(1)">Queries</button>
+                <button onclick="active(2)">Auth</button>
+                <button onclick="active(3)">Headers</button>
+                <button onclick="active(4)">Body</button>
+                <button onclick="active(5)">Additional</button>
             </div>
 
         </div>

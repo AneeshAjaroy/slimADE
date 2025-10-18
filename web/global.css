@@ -40,9 +40,7 @@ body {
 }
 
 
-
-
-.input-group {
+.url-bar {
     display: flex;
     width: auto;
     background: white;
@@ -50,7 +48,7 @@ body {
 }
 
 
-.input-group select {
+.url-bar select {
   border: none;
   color: white;
   padding: 10px 12px;
@@ -69,7 +67,7 @@ select:has(option:checked[value="HEAD"]   )  {background-color: #9012FE;}
 select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
 
 
-.input-group input[type="url"] {
+.url-bar input[type="url"] {
   flex: 1;
   border: none;
   padding: 10px 12px;
@@ -78,7 +76,7 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
 }
 
 
-.input-group button {
+.url-bar button {
   border: none;
   background: #007bff;
   color: white;
@@ -89,6 +87,44 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
 }
 
 
-.input-group button:hover {
+.url-bar button:hover {
   background: #0056b3;
 }
+
+
+
+.request-params {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid black;
+    
+}
+
+.request-params button {
+   background: none;
+   outline: none;
+   border: none;
+   padding: 10px 0;
+   font-size: 16px;
+   cursor: pointer;
+   position: relative;
+}
+
+.request-params button::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    width: 0;
+    background: blue;
+    transition: width 0.3s ease;
+}
+
+.request-params button:hover::after {
+    width: 100%;
+}
+
+.request-params button.active::after {
+    width: 100%;
+} 
