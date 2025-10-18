@@ -2,16 +2,19 @@ package server
 
 import (
 	requests "api-tester/internal/Requests"
+	uieffects "api-tester/internal/UIEffects"
 	"html/template"
 	"mime"
 	"net/http"
 )
 
-func InitRouter(rh *requests.RequestHandler) http.Handler {
+func InitRouter(rh *requests.RequestHandler, uh *uieffects.UIEffectsHandler) http.Handler {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("GET /request", rh.RequestPage)
 	mux.HandleFunc("POST /request", rh.MakeRequest)
+
+	mux.HandleFunc("GET /ui/queryAdd", uh.QueryAdd)
 
 	mime.AddExtensionType(".css", "text/css")
 	fs := http.FileServer(http.Dir("web"))
