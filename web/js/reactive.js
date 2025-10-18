@@ -2,7 +2,6 @@
 const textArea = document.getElementById("area-helper")
 const selectArea = document.getElementById("select-helper")
 const queryAdd = document.getElementById("query-add-button")
-
 const headerAdd = document.getElementById("header-add-button")
 
 
@@ -104,13 +103,14 @@ queryAdd.addEventListener("click",function(e) {
     tableBody.insertAdjacentHTML("beforeend", `
     <tr>
         <td >
-            <input  class="form-check-input border-black" type="checkbox" value="" id="checkDefault1" style="width: 100%;">
+            <input name="enabled-q" class="form-check-input border-black" type="hidden"  value="false" style="width: 100%;">
+            <input name="enabled-q" class="form-check-input border-black" type="checkbox" value="true"  style="width: 100%;">
         </td>
         <td>
-            <input type="text" class="form-control border-black" style="overflow: scroll;">
+            <input name="key-q" type="text" class="form-control border-black" style="overflow: scroll;">
         </td>
         <td>
-            <input type="text" class="form-control border-black" style="overflow: scroll;">
+            <input name="value-q" type="text" class="form-control border-black" style="overflow: scroll;">
         </td>
         <td>
             <button type="button" class="btn-close query-remove" style="width: 100%; box-sizing:border-box"></button>
@@ -138,13 +138,14 @@ headerAdd.addEventListener("click",function(e) {
     tableBody.insertAdjacentHTML("beforeend", `
     <tr>
         <td >
-            <input  class="form-check-input border-black" type="checkbox" value="" id="checkDefault1" style="width: 100%;">
+            <input name="enabled-h" class="form-check-input border-black" type="hidden" value="false"  style="width: 100%;">
+            <input name="enabled-h" class="form-check-input border-black" type="checkbox" value="true" style="width: 100%;">
         </td>
         <td>
-            <input type="text" class="form-control border-black" style="overflow: scroll;">
+            <input name="key-h" type="text" class="form-control border-black" style="overflow: scroll;">
         </td>
         <td>
-            <input type="text" class="form-control border-black" style="overflow: scroll;">
+            <input name="value-h"  type="text" class="form-control border-black" style="overflow: scroll;">
         </td>
         <td>
             <button type="button" class="btn-close header-remove" style="width: 100%; box-sizing:border-box"></button>
