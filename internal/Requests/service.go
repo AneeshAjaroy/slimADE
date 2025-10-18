@@ -16,8 +16,10 @@ func (rs *RequestService) MakeRequest(url string, method string, headers, queryV
 	if err != nil {
 		return err
 	}
-	res, err := rs.client.Do(req)
+	_, err = rs.client.Do(req)
 	if err != nil {
 		return err
 	}
+	return err
+
 }
