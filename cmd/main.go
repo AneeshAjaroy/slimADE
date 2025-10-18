@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	rh := &requests.RequestHandler{}
+	svc := &requests.RequestService{}
+	rh := requests.NewRequestHandler(svc)
 	mux := server.InitRouter(rh)
 	http.ListenAndServe(":8080", mux)
 }

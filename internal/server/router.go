@@ -3,6 +3,7 @@ package server
 import (
 	requests "api-tester/internal/Requests"
 	"html/template"
+	"mime"
 	"net/http"
 )
 
@@ -12,8 +13,10 @@ func InitRouter(rh *requests.RequestHandler) http.Handler {
 	mux.HandleFunc("GET /request", rh.RequestPage)
 	mux.HandleFunc("POST /request", rh.MakeRequest)
 
+	mime.AddExtensionType(".css", "text/css")
 	fs := http.FileServer(http.Dir("web"))
-	mux.Handle("/js/", fs)
+	mux.Handle("/web/", http.StripPrefix("/web/", fs))
+
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		h, pattern := mux.Handler(r)
 		if pattern == "" {

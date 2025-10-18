@@ -15,7 +15,7 @@ type RequestHandler struct {
 }
 
 func NewRequestHandler(svc *RequestService) *RequestHandler {
-	reqPage, err := template.ParseFiles("web/test.html")
+	reqPage, err := template.ParseFiles("web/index.html")
 	if err != nil {
 		panic(err)
 	}
@@ -86,9 +86,9 @@ func (rh *RequestHandler) MakeRequest(w http.ResponseWriter, r *http.Request) {
 	}
 	body := r.PostFormValue("body")
 
-	// err = rh.service.MakeRequest(url, method, headers, queryVals, body)
-	// if err != nil {
-	// 	rh.pages["errPage"].Execute(w, map[string]string{"Error": err.Error()})
-	// }
+	err = rh.service.MakeRequest(url, method, headers, queryVals, body)
+	if err != nil {
+		rh.pages["errPage"].Execute(w, map[string]string{"Error": err.Error()})
+	}
 
 }
