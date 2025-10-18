@@ -3,6 +3,7 @@ package server
 import (
 	requests "api-tester/internal/Requests"
 	uieffects "api-tester/internal/UIEffects"
+	"fmt"
 	"html/template"
 	"mime"
 	"net/http"
@@ -15,13 +16,16 @@ func InitRouter(rh *requests.RequestHandler, uh *uieffects.UIEffectsHandler) htt
 	mux.HandleFunc("POST /request", rh.MakeRequest)
 
 	mux.HandleFunc("GET /ui/queryAdd", uh.QueryAdd)
+	mux.HandleFunc("GET /ui/queryRemove", uh.QueryRemove)
 
 	mime.AddExtensionType(".css", "text/css")
+	mime.AddExtensionType(".js", "application/javascript")
 	fs := http.FileServer(http.Dir("web"))
 	mux.Handle("/web/", http.StripPrefix("/web/", fs))
 
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		h, pattern := mux.Handler(r)
+		fmt.Println("Requested Path:", r.URL.Path, "Method:", r.Method)
 		if pattern == "" {
 			tmpl, err := template.ParseFiles("web/templates/error.html")
 			if err != nil {

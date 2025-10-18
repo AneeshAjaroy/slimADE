@@ -28,3 +28,7 @@ func (ui *UIEffectsHandler) QueryAdd(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(200)
 	ui.tmplPages["queryAdd"].Execute(w, nil)
 }
+
+func (ui *UIEffectsHandler) QueryRemove(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(200)
+}
