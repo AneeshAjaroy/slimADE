@@ -34,3 +34,61 @@ body {
     grid-area: 3 / 3 / 4 / 4;
     background-color: blue;
 }
+
+#request-area > * {
+    margin: 15px 10px;
+}
+
+
+
+
+.input-group {
+    display: flex;
+    width: auto;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+
+.input-group select {
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  border-right: 1px solid #ccc;
+}
+
+select:has(option:checked[value="POST"]   )  {background-color: #49CC90;}
+select:has(option:checked[value="GET"]    )  {background-color: #61AFFE;}
+select:has(option:checked[value="PUT"]    )  {background-color: #FCA130;}
+select:has(option:checked[value="DELETE"] )  {background-color: #F93E3E;}
+select:has(option:checked[value="PATCH"]   )  {background-color: #50E3C2;}
+select:has(option:checked[value="HEAD"]   )  {background-color: #9012FE;}
+select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
+
+
+.input-group input[type="url"] {
+  flex: 1;
+  border: none;
+  padding: 10px 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+
+.input-group button {
+  border: none;
+  background: #007bff;
+  color: white;
+  padding: 10px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+
+.input-group button:hover {
+  background: #0056b3;
+}

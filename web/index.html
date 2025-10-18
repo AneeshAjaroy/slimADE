@@ -21,6 +21,26 @@
 
         <!--Request Area-->
         <div id="request-area">
+             <!--URL BAR-->
+            <div class="input-group">
+                <select name="method">
+                    <option  selected value="POST">POST</option>
+                    <option  value="GET">GET</option>
+                    <option  value="PUT">PUT</option>
+                    <option  value="DELETE">DELETE</option>
+                    <option  value="PATCH">PATCH</option>
+                    <option  value="HEAD">HEAD</option>
+                    <option  value="OPTIONS">OPTIONS</option>
+                </select>
+                <input
+                    name="url"
+                    type="url"
+                    id="url-bar"
+                >
+                <button>
+                    SUBMIT
+                </button>
+            </div>
 
         </div>
 
