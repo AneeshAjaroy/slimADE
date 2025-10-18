@@ -1,1 +1,36 @@
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 5px 1fr;
+    grid-template-columns: 1fr 5px 4fr;
+    border: thin solid black;
+    margin: 0;
+}
 
+#history-area {
+    grid-area: 1 / 1 / 4 / 2;
+    background-color: gray;
+    
+}
+
+#scroll-bar-1 {
+    grid-area: 1 / 2 / 4 / 3;
+    background-color: black;
+    cursor: col-resize;
+}
+
+#scroll-bar-2 {
+    grid-area: 2 / 3 / 3 / 4;
+    background-color: black;
+    cursor: row-resize;
+}
+
+#request-area {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+
+#response-area {
+    grid-area: 3 / 3 / 4 / 4;
+    background-color: blue;
+}
