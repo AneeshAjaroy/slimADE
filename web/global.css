@@ -48,7 +48,7 @@ body {
 }
 
 
-.url-bar select {
+select {
   border: none;
   color: white;
   padding: 10px 12px;
@@ -133,15 +133,14 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
 } 
 
 .request-params-expansion > .visible {
-    visibility: visible;
+    display: flex;
     opacity: 1;
 }
 
 .query-params {
-    visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     height: 180px;
@@ -169,11 +168,12 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
 }
 
 input[type="text"] {
-    flex:1
+    flex:1;
+    padding: 10px 18px;
+    overflow: scroll;
 }
 
 .query-params-object input[type="checkbox"] {
-
     appearance: none;         
     height: 38px;
     width: 40px;
@@ -187,11 +187,6 @@ input[type="text"] {
     background: blue;
     border: 1px solid blue;
 }
-
-
-
-
-
 
 .icon-btn {
     margin: 1px;
@@ -212,4 +207,109 @@ input[type="text"] {
     background: blue;
     color: white;
     border-color: blue;
+}
+
+
+
+.auth-params {
+    display: none;
+    width: 100%;
+    height: 180px;
+    border: 1px solid black;
+}
+
+.auth-type {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    border-right: 1px solid grey;
+}
+
+.auth-type select {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.auth-data {
+    width: 85%;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-data form {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-data  div {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-data  input{
+    flex: 0;
+}
+
+.auth-data select {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+
+
+.header-params {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 180px;
+    overflow-y: scroll;
+    border: 1px solid black;
+
+}
+
+
+.header-params-object {
+    margin: 1px;
+    display: flex;
+    justify-content: space-evenly;
+    height: 40px;
+    border-bottom: 1px solid black;
+}
+
+
+
+.header-params-object input {
+    margin: 1px;
+    overflow: scroll;
+    padding: 10px 18px;
+    border: 1px solid black;
+}
+
+
+
+.header-params-object input[type="checkbox"] {
+    appearance: none;         
+    height: 38px;
+    width: 40px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.header-params-object input[type="checkbox"]:checked {
+    background: blue;
+    border: 1px solid blue;
 }

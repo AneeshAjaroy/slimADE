@@ -18,6 +18,11 @@ func InitRouter(rh *requests.RequestHandler, uh *uieffects.UIEffectsHandler) htt
 	mux.HandleFunc("GET /ui/queryAdd", uh.QueryAdd)
 	mux.HandleFunc("GET /ui/queryRemove", uh.QueryRemove)
 
+	mux.HandleFunc("GET /ui/headerAdd", uh.HeaderAdd)
+	mux.HandleFunc("GET /ui/headerRemove", uh.HeaderRemove)
+
+	mux.HandleFunc("POST /ui/auth", uh.AuthPage)
+
 	mime.AddExtensionType(".css", "text/css")
 	mime.AddExtensionType(".js", "application/javascript")
 	fs := http.FileServer(http.Dir("web"))

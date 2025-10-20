@@ -60,8 +60,8 @@
                 <div class="query-params">
                     <div class="query-params-object">
                         <input name="isChecked" type="checkbox" >
-                        <input name="key" type="text" placeholder="key">
-                        <input name="value" type="text" placeholder="value">
+                        <input name="q-key" type="text" placeholder="key">
+                        <input name="q-value" type="text" placeholder="value">
                         <button 
                             class="icon-btn"
                             hx-get="/ui/queryRemove"
@@ -91,11 +91,54 @@
 
                 <!--Auth Params-->
                 <div class="auth-params">
+                    <div class="auth-type">
+                        <select
+                            name="auth"
+                            hx-post="/ui/auth"
+                            hx-trigger="change,load"
+                            hx-target="next .auth-data"
+                        >
+                            <option  selected value="apiKey">API KEY</option>
+                            <option  value="Bearer Token">Bearer Token</option>
+                        </select>
+                    </div>
+                    <div class="auth-data">
+
+                    </div>
 
                 </div>
 
                 <!--Header Params-->
-                 <div class="header-params">
+                <div class="header-params">
+                    <div class="header-params-object">
+                        <input name="isChecked" type="checkbox" >
+                        <input name="h-key" type="text" placeholder="key">
+                        <input name="h-value" type="text" placeholder="value">
+                        <button 
+                            class="icon-btn"
+                            hx-get="/ui/headerRemove"
+                            hx-trigger="click"
+                            hx-swap="delete" 
+                            hx-target="closest .header-params-object"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <button 
+                        class="icon-btn add" 
+                        hx-get="/ui/headerAdd"
+                        hx-trigger="click"
+                        hx-swap="beforebegin"
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                    </button>
+
 
                 </div>  
 

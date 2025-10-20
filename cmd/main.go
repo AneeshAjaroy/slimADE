@@ -12,5 +12,8 @@ func main() {
 	rh := requests.NewRequestHandler(svc)
 	uh := uieffects.NewUIUIEffectsHandler()
 	mux := server.InitRouter(rh, uh)
-	http.ListenAndServe(":8080", mux)
+	err := http.ListenAndServe(":8080", mux)
+	if err != nil {
+		panic(err)
+	}
 }
