@@ -85,3 +85,23 @@ func (ui *UIEffectsHandler) AuthPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
+func (ui *UIEffectsHandler) BodyType(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(500)
+		ui.tmplPages["errPage"].Execute(w, map[string]string{"Error": err.Error()})
+		return
+	}
+	if r.PostFormValue("auth") == "Bearer Token" {
+		w.WriteHeader(200)
+		ui.tmplPages["bearerAuth"].Execute(w, nil)
+		return
+	}
+
+	if r.PostFormValue("auth") == "apiKey" {
+		w.WriteHeader(200)
+		ui.tmplPages["apikey"].Execute(w, nil)
+		return
+	}
+}

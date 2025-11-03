@@ -23,6 +23,8 @@ func InitRouter(rh *requests.RequestHandler, uh *uieffects.UIEffectsHandler) htt
 
 	mux.HandleFunc("POST /ui/auth", uh.AuthPage)
 
+	mux.HandleFunc("POST /ui/body", uh.BodyType)
+
 	mime.AddExtensionType(".css", "text/css")
 	mime.AddExtensionType(".js", "application/javascript")
 	fs := http.FileServer(http.Dir("web"))
