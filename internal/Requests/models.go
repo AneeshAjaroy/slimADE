@@ -11,10 +11,11 @@ type Request struct {
 }
 
 type Response struct {
-	StatusCode int
+	StatusCode string
+	Color      string
 	Headers    map[string]string
-	Cookie     map[string]string
-	Body       []byte
+	Cookies    map[string]string
+	Body       string
 }
 
 type Transport struct {
@@ -22,7 +23,7 @@ type Transport struct {
 	InSecure bool
 }
 
-type Adeo struct {
+type RequestObject struct {
 	ID       string
 	Name     string
 	Request  Request

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	svc := &requests.RequestService{}
+	svc := requests.NewRequestService()
 	rh := requests.NewRequestHandler(svc)
 	uh := uieffects.NewUIUIEffectsHandler()
 	mux := server.InitRouter(rh, uh)

@@ -30,11 +30,14 @@ body {
 
 #response-area {
     grid-area: 3 / 3 / 4 / 4;
-    background-color: blue;
 }
 
 #request-area > * {
     margin: 1.5rem 1rem;
+}
+
+#response-area > * {
+    margin: 0.5rem 1rem;
 }
 
 
@@ -47,7 +50,7 @@ input {
     outline: none;
 }
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
     flex: 0;
     width: 3rem;
     appearance: none;         
@@ -58,7 +61,7 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     background: blue;
     border: 1px solid blue;
-}
+} */
 
 input[type="radio"] {
     flex: 0;   
@@ -78,7 +81,7 @@ textarea {
 
 .icon-btn {
     margin: 1px;
-    width: 3rem;
+    width: 2rem;
     border: 1px solid white;
     background: white;
     color: black;
@@ -182,9 +185,9 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
     transition: opacity 0.3s ease;
     display: none;
     width: 100%;
-    height: 10rem;
+    height: 15rem;
     overflow-y: scroll;
-    border: 1px solid black;
+    border: 1px solid white;
     flex-direction: column;
 }
 
@@ -192,8 +195,7 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
     margin: 1px;
     display: flex;
     justify-content: space-evenly;
-    height: 40px;
-    border-bottom: 1px solid black;
+    height: 2rem;
 }
 
 .query-params-object input {
@@ -241,8 +243,7 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
     margin: 1px;
     display: flex;
     justify-content: space-evenly;
-    height: 40px;
-    border-bottom: 1px solid black;
+    height: 2rem;
 }
 
 .header-params-object input {
@@ -252,6 +253,82 @@ select:has(option:checked[value="OPTIONS"])  {background-color: #0D5AA7;}
 .body-params {
     border: none;
 }
+
+
+
+.response-params {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid black;
+}
+
+
+
+.response-params button {
+   background: none;
+   border: none;
+   padding: 0.625rem 0;
+   font-size: 1rem;
+   cursor: pointer;
+   position: relative;
+}
+
+.response-params button::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    width: 0;
+    background: blue;
+    transition: width 0.3s ease;
+}
+
+.response-params button:hover::after {
+    width: 100%;
+}
+
+.response-params button.active::after {
+    width: 100%;
+} 
+
+.response-params-expansion > .visible {
+    display: flex;
+}
+
+.response-params-expansion > * {
+    transition: opacity 0.3s ease;
+    display: none;
+    width: 100%;
+    height: 15rem;
+    overflow-y: scroll;
+    border: 1px solid white;
+    flex-direction: column;
+}
+
+.response-input-readonly {
+    margin: 1px;
+    display: flex;
+    justify-content: space-evenly;
+    height: 2rem;
+}
+
+
+.response-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.response-stats button {
+   background: none;
+   border: none;
+   padding: 0.625rem 0;
+   font-size: 1rem;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+
 
 
 

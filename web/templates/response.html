@@ -1,0 +1,66 @@
+<div id="response-area">
+
+    <div class="response-stats">
+        <button style="color: {{ .Color }};">
+            Status: {{ .StatusCode}}
+        </button>
+
+    </div>
+
+    <div class="response-params">
+        <button onclick="activeResParam(1)">Response</button>
+        <button onclick="activeResParam(2)">Headers</button>
+        <button onclick="activeResParam(3)">Cookies</button>
+        <button onclick="activeResParam(4)">Statistics</button>
+    </div>
+
+    <div class="response-params-expansion">
+        
+        <div class="response-body visible"> 
+            <textarea>
+                {{ .Body }}
+            </textarea>
+        </div>  
+
+        <div class="response-headers">  
+            {{range $k,$v := .Headers}}
+            <div class="response-input-readonly">
+                <input type="text" value={{$k }} readonly>
+                <input type="text" value={{$v}} readonly>
+            </div>
+            {{else}}
+            <div class="response-input-readonly">
+                <input type="text" readonly>
+                <input type="text" readonly>
+            </div>
+            {{end}}
+
+        </div>  
+
+        <div class="response-cookie">   
+            {{range $k,$v := .Cookies}}
+            <div class="response-input-readonly">
+                <input type="text" value={{$k }} readonly>
+                <input type="text" value={{$v}} readonly>
+            </div>
+            {{else}}
+            <div class="response-input-readonly">
+                <input type="text" readonly>
+                <input type="text" readonly>
+            </div>
+            {{end}}
+        </div>  
+
+        <div class="response-stats">   
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
